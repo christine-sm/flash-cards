@@ -18,10 +18,12 @@ game = {
   },
   //Create function that logs user inputs of English and Malay.
   userAdd: function(front, back) {
-    front = prompt("Please provide a word or phrase in English.");
-    back = prompt("Please provide the translated phrase in Malay.");
-    this.cards.push(new card(front, back));
-    console.log(this.cards);
+    for (var j = 0; j < 3; j++) {
+      front = prompt("Please provide a word or phrase in English.");
+      back = prompt("Please provide the translated phrase in Malay.");
+      this.cards.push(new card(front, back));
+      console.log(this.cards);
+    }
   },
   //Create a function that displays English side of the cards when page loads.
   showCard: function() {
