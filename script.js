@@ -28,25 +28,11 @@ game = {
     newDiv.innerText = (this.cards[i].frontVal);
     }
   },
-  //Create a function that puts Malay side of cards into "undisplayed" div's.
-  // backCard: function() {
-  //   for (var i = 0; i < this.cards.length; i++) {
-  //   var replaceDiv = document.createElement("div");
-  //   replaceDiv.classList.add("backVal");
-  //   console.log(replaceDiv);
-  //   replaceDiv.innerText = (this.cards[i].backVal);
-  //   }
-  // },
   //Create a function that switches English text to the corresponding Malay text when text is clicked.
   translate: function(event) {
     event.preventDefault();
-    // for (var i = 0; i < game.cards.length; i++) {
-    //   var transText = game.cards[i].backVal;
-    //   console.log(transText);
-    // }
     var thisCard = game.cards[event.target.dataset.cardIndex];
     event.target.innerText = thisCard.backVal;
-    //need to event = with variable that connects frontVal to corresponding backVal
   }
 };
 
@@ -55,7 +41,4 @@ game.cardAdd("How are you?", "Apa khabar?");
 game.cardAdd("My name is _________.", "Name saya _________.");
 game.cardAdd("Have you already eaten?", "Sudah makan?");
 game.showCard();
-//game.backCard();
 cardText.addEventListener("click", game.translate);
-
-//HTML side
