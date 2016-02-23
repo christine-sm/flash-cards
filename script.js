@@ -4,6 +4,7 @@ var engText = document.querySelector("#engText");
 var forText = document.querySelector("#forText");
 var button = document.querySelector("#button");
 var build = document.querySelector("#build");
+var form = document.querySelector("#form");
 
 //Create Card container
 function card(front, back){
@@ -20,7 +21,12 @@ game = {
     front = engText.value;
     back = forText.value;
     game.cards.push(new card(front, back));
-    console.log(this.cards);
+    console.log(game.cards);
+    addDiv = document.createElement("div");
+    form.appendChild(addDiv);
+    addDiv.classList.add("cardAdd");
+    console.log(addDiv);
+    addDiv.innerText = ("Card Added!");
   },
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   showCard: function(event) {
