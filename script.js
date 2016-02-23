@@ -49,7 +49,7 @@ game = {
       var factDiv = document.createElement("div");
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
-      factDiv.innerText = ("Here is a fun fact about Malaysian culture!");
+      factDiv.innerText = (game.factoids[i]);
       //$(".funFact").fadeOut(10000);
     }
   },
@@ -64,12 +64,13 @@ game = {
     event.preventDefault();
     var frontCard = game.cards[event.target.dataset.cardIndex];
     event.target.innerText = frontCard.frontVal;
-  }
+  },
   //Uncomment this to create a default deck of cards.
   // cardAdd: function(front, back) {
   //   this.cards.push(new card(front, back));
   //   console.log(this.cards);
-  // }
+  // },
+  factoids: ["Fun fact 1", "Fun fact 2", "Fun fact 3"]
 };
 
 button.addEventListener("click", game.userAdd);
