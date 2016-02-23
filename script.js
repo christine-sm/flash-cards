@@ -10,31 +10,19 @@ function card(front, back){
     this.frontVal = front;
     this.backVal = back;
 }
-
 //Create a Game Object
 game = {
   // The cards are an empty array to start.
   cards: [],
-  //Create a function that adds the front and back values to the card array.
-  cardAdd: function(front, back) {
-    this.cards.push(new card(front, back));
-    console.log(this.cards);
-  },
-  //Create function that logs user inputs of English and Malay.
+  //Create function that logs user inputs of English and Malay words.
   userAdd: function(event, front, back) {
     event.preventDefault();
     front = engText.value;
     back = forText.value;
     game.cards.push(new card(front, back));
     console.log(this.cards);
-    // for (var j = 0; j < 3; j++) {
-    //   front = prompt("Please provide a word or phrase in English.");
-    //   back = prompt("Please provide the translated phrase in Malay.");
-    //   this.cards.push(new card(front, back));
-    //   console.log(this.cards);
-    // }
   },
-  //Create a function that displays English side of the cards when page loads.
+  //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   showCard: function(event) {
     event.preventDefault();
     for (var i = 0; i < game.cards.length; i++) {
@@ -58,16 +46,21 @@ game = {
     var frontCard = game.cards[event.target.dataset.cardIndex];
     event.target.innerText = frontCard.frontVal;
   }
+  //Uncomment this to create a default deck of cards.
+  // cardAdd: function(front, back) {
+  //   this.cards.push(new card(front, back));
+  //   console.log(this.cards);
+  // }
 };
 
+button.addEventListener("click", game.userAdd);
+//button.addEventListener("click", game.showCard);
+build.addEventListener("click", game.showCard);
+cardText.addEventListener("mouseover", game.translate);
+cardText.addEventListener("mouseout", game.revert);
 //Default Cards
 //game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
 // game.cardAdd("Have you already eaten?", "Sudah makan?");
 // game.userAdd();
 //game.showCard();
-button.addEventListener("click", game.userAdd);
-//button.addEventListener("click", game.showCard);
-build.addEventListener("click", game.showCard);
-cardText.addEventListener("mouseover", game.translate);
-cardText.addEventListener("mouseout", game.revert);
