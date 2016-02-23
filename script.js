@@ -3,6 +3,7 @@ var cardText = document.querySelector("#cardText");
 var engText = document.querySelector("#engText");
 var forText = document.querySelector("#forText");
 var button = document.querySelector("#button");
+var build = document.querySelector("#build");
 
 //Create Card container
 function card(front, back){
@@ -34,7 +35,8 @@ game = {
     // }
   },
   //Create a function that displays English side of the cards when page loads.
-  showCard: function() {
+  showCard: function(event) {
+    event.preventDefault();
     for (var i = 0; i < game.cards.length; i++) {
     var newDiv = document.createElement("div");
     cardText.appendChild(newDiv);
@@ -65,6 +67,7 @@ game = {
 // game.userAdd();
 //game.showCard();
 button.addEventListener("click", game.userAdd);
-button.addEventListener("click", game.showCard);
+//button.addEventListener("click", game.showCard);
+build.addEventListener("click", game.showCard);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
