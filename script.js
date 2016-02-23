@@ -22,11 +22,13 @@ game = {
     back = forText.value;
     game.cards.push(new card(front, back));
     console.log(game.cards);
+    //Creates Card Added! Message and then fades out.
     addDiv = document.createElement("div");
     form.appendChild(addDiv);
     addDiv.classList.add("cardAdd");
     console.log(addDiv);
     addDiv.innerText = ("Card Added!");
+    $(".cardAdd").fadeOut(750);
   },
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   showCard: function(event) {
