@@ -19,3 +19,4 @@ This will be a pack of flash cards for studying Malay, the national language of 
   * Create a Deck of Default Cards Function
     * The cards are an empty array to start. Create a function that adds a front value and a back value to the card array.
   * User Input of Additional Cards Function
+    * Create buttons for user input of word and translated word. Log those inputs into a flash card with a front value and a back value.

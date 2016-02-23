@@ -1,5 +1,8 @@
 //DOM Variables
 var cardText = document.querySelector("#cardText");
+var engText = document.querySelector("#engText");
+var forText = document.querySelector("#forText");
+var button = document.querySelector("#button");
 
 //Create Card container
 function card(front, back){
@@ -17,23 +20,28 @@ game = {
     console.log(this.cards);
   },
   //Create function that logs user inputs of English and Malay.
-  userAdd: function(front, back) {
-    for (var j = 0; j < 3; j++) {
-      front = prompt("Please provide a word or phrase in English.");
-      back = prompt("Please provide the translated phrase in Malay.");
-      this.cards.push(new card(front, back));
-      console.log(this.cards);
-    }
+  userAdd: function(event, front, back) {
+    event.preventDefault();
+    front = engText.value;
+    back = forText.value;
+    game.cards.push(new card(front, back));
+    console.log(this.cards);
+    // for (var j = 0; j < 3; j++) {
+    //   front = prompt("Please provide a word or phrase in English.");
+    //   back = prompt("Please provide the translated phrase in Malay.");
+    //   this.cards.push(new card(front, back));
+    //   console.log(this.cards);
+    // }
   },
   //Create a function that displays English side of the cards when page loads.
   showCard: function() {
-    for (var i = 0; i < this.cards.length; i++) {
+    for (var i = 0; i < game.cards.length; i++) {
     var newDiv = document.createElement("div");
     cardText.appendChild(newDiv);
     newDiv.classList.add("frontVal");
     newDiv.dataset.cardIndex = i;
     console.log(newDiv);
-    newDiv.innerText = (this.cards[i].frontVal);
+    newDiv.innerText = (game.cards[i].frontVal);
     }
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
@@ -51,10 +59,12 @@ game = {
 };
 
 //Default Cards
-game.cardAdd("How are you?", "Apa khabar?");
-game.cardAdd("My name is _________.", "Name saya _________.");
-game.cardAdd("Have you already eaten?", "Sudah makan?");
-game.userAdd();
-game.showCard();
+//game.cardAdd("How are you?", "Apa khabar?");
+// game.cardAdd("My name is _________.", "Name saya _________.");
+// game.cardAdd("Have you already eaten?", "Sudah makan?");
+// game.userAdd();
+//game.showCard();
+button.addEventListener("click", game.userAdd);
+button.addEventListener("click", game.showCard);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
