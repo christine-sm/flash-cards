@@ -60,7 +60,6 @@ game = {
 };
 
 button.addEventListener("click", game.userAdd);
-//button.addEventListener("click", game.showCard);
 build.addEventListener("click", game.showCard);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
