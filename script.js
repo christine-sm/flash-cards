@@ -5,6 +5,7 @@ var forText = document.querySelector("#forText");
 var button = document.querySelector("#button");
 var build = document.querySelector("#build");
 var form = document.querySelector("#form");
+var facts = document.querySelector("#facts");
 
 //Create Card container
 function card(front, back){
@@ -23,7 +24,7 @@ game = {
     game.cards.push(new card(front, back));
     console.log(game.cards);
     //Creates Card Added! Message and then fades out.
-    addDiv = document.createElement("div");
+    var addDiv = document.createElement("div");
     form.appendChild(addDiv);
     addDiv.classList.add("cardAdd");
     console.log(addDiv);
@@ -40,6 +41,16 @@ game = {
     newDiv.dataset.cardIndex = i;
     console.log(newDiv);
     newDiv.innerText = (game.cards[i].frontVal);
+    }
+  },
+  //Fun facts appear matching the length of the card deck.
+  funFact: function() {
+    for (var i = 0; i < game.cards.length; i++) {
+      var factDiv = document.createElement("div");
+      facts.appendChild(factDiv);
+      factDiv.classList.add("funFact");
+      factDiv.innerText = ("Here is a fun fact about Malaysian culture!");
+      //$(".funFact").fadeOut(10000);
     }
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
@@ -63,6 +74,7 @@ game = {
 
 button.addEventListener("click", game.userAdd);
 build.addEventListener("click", game.showCard);
+build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
 //Default Cards
