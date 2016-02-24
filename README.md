@@ -14,10 +14,10 @@ This will be a pack of flash cards for studying Malay, the national language of 
     * As a user, I should be able to hover over the English word on the front of the flash card so that I can reveal the Malay word on the back of the flash card.
 
   * User Story 4
-    * As a user, I should be able to display the flashcards one at a time so that I can quiz myself on the words on these cards.
+    * As a user, I should be able to see fun facts of Malaysian culture so I can learn about Malaysian culture in addition to Malaysian words.
 
   * User Story 5
-    * As a user, I should be able to see fun facts of Malaysian culture so I can learn about Malaysian culture in addition to Malaysian words.
+    * As a user, I should be able to display the flashcards one at a time so that I can quiz myself on the words on these cards.
 
 # Pseudocode
   * Card Container Function
@@ -34,4 +34,4 @@ This will be a pack of flash cards for studying Malay, the national language of 
   * Gold
     * Application has nice CSS styling. For each card added, user learns a fun fact about Malaysian culture.
   * Platinum
-    * Deck "quiz" where user can cycle through one card at a time. 
+    * Deck "quiz" where user can cycle through one card at a time.

@@ -34,6 +34,10 @@ game = {
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   showCard: function(event) {
     event.preventDefault();
+    var infoCards = document.createElement("div");
+    cardText.appendChild(infoCards);
+    infoCards.classList.add("info");
+    infoCards.innerText= ("Here is your deck. Hover over a card to see its translation. Underneath the deck, you will see your fun facts about Malaysia!");
     for (var i = 0; i < game.cards.length; i++) {
     var newDiv = document.createElement("div");
     cardText.appendChild(newDiv);
@@ -70,7 +74,7 @@ game = {
   //   this.cards.push(new card(front, back));
   //   console.log(this.cards);
   // },
-  factoids: ["Fun fact 1", "Fun fact 2", "Fun fact 3"]
+  factoids: ["Fun fact 1", "Fun fact 2", "Fun fact 3", "Fun fact 4", "Fun fact 5", "Fun fact 6", "Fun fact 7", "Fun fact 8", "Fun fact 9", "Fun fact 10"]
 };
 
 button.addEventListener("click", game.userAdd);
