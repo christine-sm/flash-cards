@@ -1,4 +1,5 @@
 //DOM Variables
+var gameBox = document.querySelector("#gameBox");
 var cardText = document.querySelector("#cardText");
 var engText = document.querySelector("#engText");
 var forText = document.querySelector("#forText");
@@ -6,6 +7,7 @@ var button = document.querySelector("#button");
 var build = document.querySelector("#build");
 var form = document.querySelector("#form");
 var facts = document.querySelector("#facts");
+var startQuiz = document.querySelector("#startQuiz");
 
 //Create Card container
 function card(front, back){
@@ -35,7 +37,7 @@ game = {
   buildDeck: function(event) {
     event.preventDefault();
     //Create Info Message
-    var infoCards = document.createElement("h3");
+    infoCards = document.createElement("h3");
     $(infoCards).fadeIn(1000);
     cardText.appendChild(infoCards);
     infoCards.classList.add("info");
@@ -43,7 +45,7 @@ game = {
 
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
-    var newDiv = document.createElement("div");
+    newDiv = document.createElement("div");
     $(newDiv).fadeIn(2000);
     cardText.appendChild(newDiv);
     newDiv.classList.add("frontVal");
@@ -56,7 +58,7 @@ game = {
   //Fun facts appear matching the length of the card deck.
   funFact: function() {
     for (var i = 0; i < game.cards.length; i++) {
-      var factDiv = document.createElement("div");
+      factDiv = document.createElement("div");
       $(factDiv).fadeIn(5000);
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
@@ -81,6 +83,29 @@ game = {
   //   this.cards.push(new card(front, back));
   //   console.log(this.cards);
   // },
+  //Removes deck and fun facts in preparation for quiz.
+  removeDeck: function() {
+    //$(infoCards).fadeOut(2000);
+    // $(newDiv).fadeOut(2000);
+    // $(factDiv).fadeOut(2000);
+    gameBox.removeChild(cardText);
+    gameBox.removeChild(facts);
+  },
+
+  // quizUser: function () {
+  //   for (var k = 0; k < game.cards.length; k++) {
+  //     //Display card index value 0
+  //     newDiv = document.createElement("div");
+  //     $(newDiv).fadeIn(1000);
+  //     cardText.appendChild(newDiv);
+  //     newDiv.classList.add("frontVal");
+  //     newDiv.dataset.cardIndex = k;
+  //     console.log(newDiv);
+  //     newDiv.innerText = (game.cards[k].frontVal);
+  //     //If user correctly translates, click button 1 to give a user a point and remove card from deck and move to card of next index value
+  //     //If user incorrectly translates, click button 2 to move to card of next index value
+  //   }
+  // },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
     "FUN FACT 2: The capital of Malaysia is Kuala Lumpur.",
@@ -100,6 +125,7 @@ build.addEventListener("click", game.buildDeck);
 build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
+startQuiz.addEventListener("click", game.removeDeck);
 //Default Cards
 //game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");

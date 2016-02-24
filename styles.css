@@ -10,7 +10,7 @@ body {
   background-repeat: no-repeat;*/
 }
 
-#game-box {
+#gameBox {
   background-color: #ffffff;
   background: linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
   background: -webkit-linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
