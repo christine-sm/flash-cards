@@ -1,29 +1,32 @@
 * {
   text-align: center;
-}
-
-.frontVal {
-  border: solid navy 2px;
-  margin: 10px auto;
-  padding: 10px;
-  border-radius: 5px;
+  font-family: Helvetica, sans-serif;
 }
 
 body {
-  /*background: url('background_trees.jpg');
+  background: url('petronas_towers.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;*/
-  background-color: navy;
+  /*background-color: navy;*/
 }
 
 #game-box {
-  background-color: white;
-  background: linear-gradient(top, rgba(255,255,255,.70), rgba(255,255,255,.70));
-  background: -webkit-linear-gradient(top, rgba(255,255,255,.70), rgba(255,255,255,.70));
-  background: -moz-linear-gradient(top, rgba(255,255,255,.70), rgba(255,255,255,.70));
+  background-color: #ffffff;
+  background: linear-gradient(top, rgba(255,255,255,.80), rgba(255,255,255,.80));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,.80), rgba(255,255,255,.80));
+  background: -moz-linear-gradient(top, rgba(255,255,255,.80), rgba(255,255,255,.80));
   width: 40em;
   margin: 0 auto;
   padding: 2em;
   border-radius: 15px;
+}
+
+.frontVal {
+  border: solid #0052cc 2px;
+  margin: 2em auto;
+  padding: 10px;
+  border-radius: 5px;
+  width: 20em;
+  background-color: #ffffff;
 }
