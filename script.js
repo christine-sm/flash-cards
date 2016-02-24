@@ -29,28 +29,35 @@ game = {
     addDiv.classList.add("cardAdd");
     console.log(addDiv);
     addDiv.innerText = ("Card Added!");
-    $(".cardAdd").fadeOut(750);
+    $(".cardAdd").fadeOut(1000);
   },
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   showCard: function(event) {
     event.preventDefault();
+    //Create Info Message
     var infoCards = document.createElement("div");
+    $(infoCards).fadeIn(1000);
     cardText.appendChild(infoCards);
     infoCards.classList.add("info");
     infoCards.innerText= ("Here is your deck. Hover over a card to see its translation. Underneath the deck, you will see your fun facts about Malaysia!");
+
+    //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
     var newDiv = document.createElement("div");
+    $(newDiv).fadeIn(2000);
     cardText.appendChild(newDiv);
     newDiv.classList.add("frontVal");
     newDiv.dataset.cardIndex = i;
     console.log(newDiv);
     newDiv.innerText = (game.cards[i].frontVal);
+
     }
   },
   //Fun facts appear matching the length of the card deck.
   funFact: function() {
     for (var i = 0; i < game.cards.length; i++) {
       var factDiv = document.createElement("div");
+      $(factDiv).fadeIn(3000);
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
       factDiv.innerText = (game.factoids[i]);
