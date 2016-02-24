@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Learn Malay</title>
   <link rel="stylesheet" href="styles.css">
   <script src="jquery-1.12.0.js"></script>
 </head>
 <body>
-  <h1>Let's Learn Malay!</h1>
-    <p>Malay is the official language of Malaysia. Please add an English word/phrase and its Malay translation in the spaces below. When you have finished adding your cards, hit "Build Deck" to create your deck!
-    </p>
+  <div id="game-box">
+    <h1>Let's Learn Malay!</h1>
+      <p>Malay is the official language of Malaysia. Please add an English word/phrase and its Malay translation in the spaces below. When you have finished adding your cards, hit "Build Deck" to create your deck!
+      </p>
     <h2>Fun Tip</h2>
-    <p>For each card that you add, you will receive a fun fact about Malaysian culture. The more cards you add, the more fun facts you will learn. The fun facts will appear below your created deck.</p>
+      <p>For each card that you add, you will receive a fun fact about Malaysian culture. The more cards you add, the more fun facts you will learn. The fun facts will appear below your created deck.</p>
     <h2>Add Your Cards Here:</h2>
     <form id="form">
       <input type="text" id="engText" placeholder="English Word or Phrase"></input>
@@ -22,7 +23,9 @@
       <p></p>
     </form>
   <div id="cardText"></div>
+  <p></p>
   <div id="facts"></div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

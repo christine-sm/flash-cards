@@ -1,6 +1,29 @@
+* {
+  text-align: center;
+}
+
 .frontVal {
-  border: solid turquoise 2px;
+  border: solid navy 2px;
   margin: 10px auto;
   padding: 10px;
   border-radius: 5px;
+}
+
+body {
+  /*background: url('background_trees.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;*/
+  background-color: navy;
+}
+
+#game-box {
+  background-color: white;
+  background: linear-gradient(top, rgba(255,255,255,.70), rgba(255,255,255,.70));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,.70), rgba(255,255,255,.70));
+  background: -moz-linear-gradient(top, rgba(255,255,255,.70), rgba(255,255,255,.70));
+  width: 40em;
+  margin: 0 auto;
+  padding: 2em;
+  border-radius: 15px;
 }
