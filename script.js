@@ -35,7 +35,7 @@ game = {
   showCard: function(event) {
     event.preventDefault();
     //Create Info Message
-    var infoCards = document.createElement("div");
+    var infoCards = document.createElement("h3");
     $(infoCards).fadeIn(1000);
     cardText.appendChild(infoCards);
     infoCards.classList.add("info");
@@ -57,7 +57,7 @@ game = {
   funFact: function() {
     for (var i = 0; i < game.cards.length; i++) {
       var factDiv = document.createElement("div");
-      $(factDiv).fadeIn(5000);
+      $(factDiv).fadeIn(6000);
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
       factDiv.innerText = (game.factoids[i]);
