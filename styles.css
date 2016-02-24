@@ -39,6 +39,10 @@ button {
   border-radius: 5px;
 }
 
+.cardAdd {
+  margin-top: 10px;
+}
+
 .frontVal {
   border: solid #0052cc 2px;
   margin: 2em auto;

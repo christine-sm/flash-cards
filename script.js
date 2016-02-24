@@ -32,7 +32,7 @@ game = {
     $(".cardAdd").fadeOut(1000);
   },
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
-  showCard: function(event) {
+  buildDeck: function(event) {
     event.preventDefault();
     //Create Info Message
     var infoCards = document.createElement("h3");
@@ -57,7 +57,7 @@ game = {
   funFact: function() {
     for (var i = 0; i < game.cards.length; i++) {
       var factDiv = document.createElement("div");
-      $(factDiv).fadeIn(6000);
+      $(factDiv).fadeIn(5000);
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
       factDiv.innerText = (game.factoids[i]);
@@ -96,7 +96,7 @@ game = {
 };
 
 button.addEventListener("click", game.userAdd);
-build.addEventListener("click", game.showCard);
+build.addEventListener("click", game.buildDeck);
 build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
@@ -105,4 +105,4 @@ cardText.addEventListener("mouseout", game.revert);
 // game.cardAdd("My name is _________.", "Name saya _________.");
 // game.cardAdd("Have you already eaten?", "Sudah makan?");
 // game.userAdd();
-//game.showCard();
+//game.buildDeck();
