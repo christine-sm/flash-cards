@@ -57,7 +57,7 @@ game = {
   funFact: function() {
     for (var i = 0; i < game.cards.length; i++) {
       var factDiv = document.createElement("div");
-      $(factDiv).fadeIn(3000);
+      $(factDiv).fadeIn(5000);
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
       factDiv.innerText = (game.factoids[i]);
@@ -81,7 +81,18 @@ game = {
   //   this.cards.push(new card(front, back));
   //   console.log(this.cards);
   // },
-  factoids: ["Fun fact 1", "Fun fact 2", "Fun fact 3", "Fun fact 4", "Fun fact 5", "Fun fact 6", "Fun fact 7", "Fun fact 8", "Fun fact 9", "Fun fact 10"]
+  factoids: [
+    "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
+    "FUN FACT 2: The capital of Malaysia is Kuala Lumpur.",
+    "FUN FACT 3: Malaysia is a melting pot of distinct ethnic groups: Muslim Malays, Chinese, Indian, and tribal Malays.",
+    "FUN FACT 4: Each of these ethnic groups have their own distinct languages, such as Hokkien, Tamil, and Iban.",
+    "FUN FACT 5: Malaysians LOVE to eat! A common way of greeting each other is 'Dah Makan?' which means, 'Have you already eaten?'.",
+    "FUN FACT 6: Do not point at a person with your index finger, as that is considered rude. Instead point with your thumb.",
+    "FUN FACT 7: Malaysia has a tropical climate, and is home to many beautiful islands and rainforests.",
+    "FUN FACT 8: Malaysia is a Muslim majority country. Locals appreciate it if you dress appropriately!",
+    "FUN FACT 9: Look right, then left. Malaysians drive on the left side of the street.",
+    "FUN FACT 10: You already know 'some' Malay. Some words are based off of English and Dutch. For example, 'bus' is 'bas', 'taxi' is 'teksi', and 'hello' is 'helo'!"
+  ]
 };
 
 button.addEventListener("click", game.userAdd);

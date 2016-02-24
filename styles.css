@@ -13,9 +13,9 @@ body {
 
 #game-box {
   background-color: #ffffff;
-  background: linear-gradient(top, rgba(255,255,255,.80), rgba(255,255,255,.80));
-  background: -webkit-linear-gradient(top, rgba(255,255,255,.80), rgba(255,255,255,.80));
-  background: -moz-linear-gradient(top, rgba(255,255,255,.80), rgba(255,255,255,.80));
+  background: linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
+  background: -moz-linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
   width: 40em;
   margin: 0 auto;
   padding: 2em;
@@ -29,4 +29,8 @@ body {
   border-radius: 5px;
   width: 20em;
   background-color: #ffffff;
+}
+
+.funFact {
+  text-align: left;
 }
