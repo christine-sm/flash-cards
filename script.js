@@ -97,10 +97,9 @@ game = {
   },
 
   quizUser: function() {
-    //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME?
-    // for (var k = 0; k < game.cards.length; k++)
-    var k = game.cards[0];
-    // while (k < game.cards.length) {
+    //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME? Make all but the first invisible?
+    for (var k = 0; k < game.cards.length; k++) {
+      if (k === 0) {
       quizCard = document.createElement("div");
       $(quizCard).fadeIn(2000);
       quiz.appendChild(quizCard);
@@ -108,6 +107,7 @@ game = {
       quizCard.dataset.cardIndex = k;
       console.log(quizCard);
       quizCard.innerText = (game.cards[k].frontVal);
+    } 
       // correctButton = document.createElement("button");
       // quiz.appendChild(correctButton);
       // correctButton.classList.add("correct");
@@ -116,7 +116,7 @@ game = {
       //Display card index value 0
       //If user correctly translates, click button 1 to give a user a point and remove card from deck and move to card of next index value
       //If user incorrectly translates, click button 2 to move to card of next index value
-    //}
+    }
   },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
