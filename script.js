@@ -85,17 +85,31 @@ game = {
   // },
   //Removes deck and fun facts in preparation for quiz.
   removeDeck: function() {
-    // gameBox.removeChild(cardText); //Deletes the div
+    $(cardText).fadeOut(500);
+    gameBox.removeChild(cardText); //Deletes the div
     // gameBox.removeChild(facts); //Deletes the div
-    $(cardText).fadeOut(1000); //Makes div invisible
-    cardText.removeChild(infoCards);
-    $(facts).fadeOut(1000); //Makes div invisible
+    // $(cardText).fadeOut(1000); //Makes div invisible
+    // cardText.removeChild(infoCards);
+    $(facts).fadeOut(500); //Makes div invisible
   },
 
-  quizUser: function () {
+  quizUser: function() {
+    //Re-make cardText div, renamed as quizDiv
+    quizDiv = document.createElement("div");
+    $(quizDiv).fadeIn(2000);
+    gameBox.appendChild(quizDiv);
+    quizDiv.classList.add("quizDiv");
+    //Put cards back into it, one at a time.
     for (var k = 0; k < game.cards.length; k++) {
+      quizCard = document.createElement("div");
+      $(quizCard).fadeIn(2000);
+      quizDiv.appendChild(quizCard);
+      quizCard.classList.add("frontVal");
+      quizCard.dataset.cardIndex = k;
+      console.log(quizCard);
+      quizCard.innerText = (game.cards[k].frontVal);
+
       //Display card index value 0
-      $(cardText).fadeIn(4000);
       //If user correctly translates, click button 1 to give a user a point and remove card from deck and move to card of next index value
       //If user incorrectly translates, click button 2 to move to card of next index value
     }
