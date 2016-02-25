@@ -98,7 +98,9 @@ game = {
 
   quizUser: function() {
     //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME?
-    for (var k = 0; k < game.cards.length; k++) {
+    // for (var k = 0; k < game.cards.length; k++)
+    var k = game.cards[0];
+    // while (k < game.cards.length) {
       quizCard = document.createElement("div");
       $(quizCard).fadeIn(2000);
       quiz.appendChild(quizCard);
@@ -106,31 +108,15 @@ game = {
       quizCard.dataset.cardIndex = k;
       console.log(quizCard);
       quizCard.innerText = (game.cards[k].frontVal);
-      correctButton = document.createElement("button");
-      quiz.appendChild(correctButton);
-      correctButton.classList.add("correct");
-      correctButton.innerText = ("Correct!");
-      incorrectButton = document.createElement("button");
-      quiz.appendChild(incorrectButton);
-      correctButton.classList.add("incorrect");
-      incorrectButton.innerText = ("Incorrect :(");
+      // correctButton = document.createElement("button");
+      // quiz.appendChild(correctButton);
+      // correctButton.classList.add("correct");
+      // correctButton.innerText = ("Correct!");
 
       //Display card index value 0
       //If user correctly translates, click button 1 to give a user a point and remove card from deck and move to card of next index value
       //If user incorrectly translates, click button 2 to move to card of next index value
-    }
-    tallyRight = document.createElement("p");
-    $(tallyRight).fadeIn(2000);
-    quiz.appendChild(tallyRight);
-    tallyRight.innerText = ("Number Correct: " + 0);
-    tallyWrong = document.createElement("p");
-    $(tallyWrong).fadeIn(2000);
-    quiz.appendChild(tallyWrong);
-    tallyWrong.innerText = ("Number Incorrect: " + 0);
-  },
-  correctClick: function() {
-    tallyRight.innerText = ("Number Correct: " + 1);
-    console.log("Correct clicked!");
+    //}
   },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
@@ -155,7 +141,6 @@ startQuiz.addEventListener("click", game.removeDeck);
 startQuiz.addEventListener("click", game.quizUser);
 quiz.addEventListener("mouseover", game.translate);
 quiz.addEventListener("mouseout", game.revert);
-correct.addEventListener("click", game.correctClick);
 //Default Cards
 //game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
