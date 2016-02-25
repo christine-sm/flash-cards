@@ -8,6 +8,7 @@ var build = document.querySelector("#build");
 var form = document.querySelector("#form");
 var facts = document.querySelector("#facts");
 var startQuiz = document.querySelector("#startQuiz");
+var quiz = document.querySelector("#quiz");
 
 //Create Card container
 function card(front, back){
@@ -94,16 +95,16 @@ game = {
   },
 
   quizUser: function() {
-    //Re-make cardText div, renamed as quizDiv
-    quizDiv = document.createElement("div");
-    $(quizDiv).fadeIn(2000);
-    gameBox.appendChild(quizDiv);
-    quizDiv.classList.add("quizDiv");
+    // //Re-make cardText div, renamed as quizDiv
+    // quizDiv = document.createElement("div");
+    // $(quizDiv).fadeIn(2000);
+    // gameBox.appendChild(quizDiv);
+    // quizDiv.classList.add("quizDiv");
     //Put cards back into it, one at a time.
     for (var k = 0; k < game.cards.length; k++) {
       quizCard = document.createElement("div");
       $(quizCard).fadeIn(2000);
-      quizDiv.appendChild(quizCard);
+      quiz.appendChild(quizCard);
       quizCard.classList.add("frontVal");
       quizCard.dataset.cardIndex = k;
       console.log(quizCard);
@@ -135,6 +136,8 @@ cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
 startQuiz.addEventListener("click", game.removeDeck);
 startQuiz.addEventListener("click", game.quizUser);
+quiz.addEventListener("mouseover", game.translate);
+quiz.addEventListener("mouseout", game.revert);
 //Default Cards
 //game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
