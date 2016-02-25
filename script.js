@@ -9,8 +9,8 @@ var form = document.querySelector("#form");
 var facts = document.querySelector("#facts");
 var startQuiz = document.querySelector("#startQuiz");
 var quiz = document.querySelector("#quiz");
-var correct = document.querySelector(".correct");
-var incorrect = document.querySelector(".incorrect");
+// var correct = document.querySelector(".correct");
+// var incorrect = document.querySelector(".incorrect");
 
 //Create Card container
 function card(front, back){
@@ -66,7 +66,6 @@ game = {
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
       factDiv.innerText = (game.factoids[i]);
-      //$(".funFact").fadeOut(10000);
     }
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
@@ -81,23 +80,15 @@ game = {
     var frontCard = game.cards[event.target.dataset.cardIndex];
     event.target.innerText = frontCard.frontVal;
   },
-  //Uncomment this to create a default deck of cards.
-  // cardAdd: function(front, back) {
-  //   this.cards.push(new card(front, back));
-  //   console.log(this.cards);
-  // },
   //Removes deck and fun facts in preparation for quiz.
   removeDeck: function() {
     $(cardText).fadeOut(500);
     gameBox.removeChild(cardText); //Deletes the div
-    // gameBox.removeChild(facts); //Deletes the div
-    // $(cardText).fadeOut(1000); //Makes div invisible
-    // cardText.removeChild(infoCards);
-    $(facts).fadeOut(500); //Makes div invisible
+    $(facts).fadeOut(500); //Makes div invisible so user can retrieve later when I make a button for it.
   },
-
+  //User Quizzes themselves
   quizUser: function() {
-    //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME? Make all but the first invisible?
+  //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME? Make all but the first invisible? Do I not use a for loop? I can either have just the first card show up or all of the cards show up at once, but I am struggling to show them in a loop one at a time.
     for (var k = 0; k < game.cards.length; k++) {
       // if (k === 0) {
         quizCard = document.createElement("div");
@@ -114,8 +105,9 @@ game = {
       // correctButton.innerText = ("Correct!");
 
       //Display card index value 0
-      //If user correctly translates, click button 1 to give a user a point and remove card from deck and move to card of next index value
-      //If user incorrectly translates, click button 2 to move to card of next index value
+      //If user correctly translates, click button 1 to give a user a point and remove card from deck and display card of next index value
+      //If user incorrectly translates, click button 2 to display card of next index value and put previous card at the end of the array
+      //Quiz continues until all cards are removed from the array
     }
   },
   factoids: [
@@ -130,6 +122,11 @@ game = {
     "FUN FACT 9: Look right, then left. Malaysians drive on the left side of the street.",
     "FUN FACT 10: You already know 'some' Malay. Some words are based off of English and Dutch. For example, 'bus' is 'bas', 'taxi' is 'teksi', and 'hello' is 'helo'!"
   ]
+  //Uncomment this to create a default deck of cards.
+  // cardAdd: function(front, back) {
+  //   this.cards.push(new card(front, back));
+  //   console.log(this.cards);
+  // }
 };
 
 button.addEventListener("click", game.userAdd);
@@ -141,7 +138,7 @@ startQuiz.addEventListener("click", game.removeDeck);
 startQuiz.addEventListener("click", game.quizUser);
 quiz.addEventListener("mouseover", game.translate);
 quiz.addEventListener("mouseout", game.revert);
-//Default Cards
+//Uncomment to Create Default Cards
 //game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
 // game.cardAdd("Have you already eaten?", "Sudah makan?");
