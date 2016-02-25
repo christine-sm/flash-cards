@@ -99,15 +99,15 @@ game = {
   quizUser: function() {
     //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME? Make all but the first invisible?
     for (var k = 0; k < game.cards.length; k++) {
-      if (k === 0) {
-      quizCard = document.createElement("div");
-      $(quizCard).fadeIn(2000);
-      quiz.appendChild(quizCard);
-      quizCard.classList.add("frontVal");
-      quizCard.dataset.cardIndex = k;
-      console.log(quizCard);
-      quizCard.innerText = (game.cards[k].frontVal);
-    } 
+      // if (k === 0) {
+        quizCard = document.createElement("div");
+        $(quizCard).fadeIn(2000);
+        quiz.appendChild(quizCard);
+        quizCard.classList.add("frontVal");
+        quizCard.dataset.cardIndex = k;
+        console.log(quizCard);
+        quizCard.innerText = (game.cards[k].frontVal);
+      // }
       // correctButton = document.createElement("button");
       // quiz.appendChild(correctButton);
       // correctButton.classList.add("correct");
