@@ -57,3 +57,7 @@ button {
   margin: 2em;
   line-height: 150%;
 }
+
+.correct {
+  margin: 0 10px;
+}

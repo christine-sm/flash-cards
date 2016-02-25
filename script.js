@@ -95,12 +95,7 @@ game = {
   },
 
   quizUser: function() {
-    // //Re-make cardText div, renamed as quizDiv
-    // quizDiv = document.createElement("div");
-    // $(quizDiv).fadeIn(2000);
-    // gameBox.appendChild(quizDiv);
-    // quizDiv.classList.add("quizDiv");
-    //Put cards back into it, one at a time.
+    //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME?
     for (var k = 0; k < game.cards.length; k++) {
       quizCard = document.createElement("div");
       $(quizCard).fadeIn(2000);
@@ -109,11 +104,27 @@ game = {
       quizCard.dataset.cardIndex = k;
       console.log(quizCard);
       quizCard.innerText = (game.cards[k].frontVal);
+      correctButton = document.createElement("button");
+      quiz.appendChild(correctButton);
+      correctButton.classList.add("correct");
+      correctButton.innerText = ("Correct!");
+      incorrectButton = document.createElement("button");
+      quiz.appendChild(incorrectButton);
+      correctButton.classList.add("correct");
+      incorrectButton.innerText = ("Incorrect :(");
 
       //Display card index value 0
       //If user correctly translates, click button 1 to give a user a point and remove card from deck and move to card of next index value
       //If user incorrectly translates, click button 2 to move to card of next index value
     }
+    tallyRight = document.createElement("p");
+    $(tallyRight).fadeIn(2000);
+    quiz.appendChild(tallyRight);
+    tallyRight.innerText = ("Number Correct: ");
+    tallyWrong = document.createElement("p");
+    $(tallyWrong).fadeIn(2000);
+    quiz.appendChild(tallyWrong);
+    tallyWrong.innerText = ("Number Incorrect: ");
   },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
