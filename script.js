@@ -60,12 +60,18 @@ game = {
   },
   //Fun facts appear matching the length of the card deck.
   funFact: function() {
-    for (var i = 0; i < game.cards.length; i++) {
+    for (var i = 0; i < 10; i++) {
       factDiv = document.createElement("div");
       $(factDiv).fadeIn(5000);
       facts.appendChild(factDiv);
       factDiv.classList.add("funFact");
       factDiv.innerText = (game.factoids[i]);
+    } if (game.cards.length > 10) {
+      factDiv = document.createElement("div");
+      $(factDiv).fadeIn(5000);
+      facts.appendChild(factDiv);
+      factDiv.classList.add("funFact");
+      factDiv.innerText = ("Check back later for more facts!");
     }
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
@@ -113,16 +119,16 @@ game = {
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
     "FUN FACT 2: The capital of Malaysia is Kuala Lumpur.",
-    "FUN FACT 3: Malaysia is a melting pot of distinct ethnic groups: Muslim Malays, Chinese, Indian, and tribal Malays.",
-    "FUN FACT 4: Each of these ethnic groups have their own distinct languages, such as Hokkien, Tamil, and Iban.",
+    "FUN FACT 3: Malaysia is a melting pot of distinct ethnic groups: Muslim Malay, Chinese, Indian, and various indigenous tribes.",
+    "FUN FACT 4: In addition to Malay, each of these ethnic groups have their own distinct languages, such as Hokkien, Tamil, and Iban.",
     "FUN FACT 5: Malaysians LOVE to eat! A common way of greeting each other is 'Dah Makan?' which means, 'Have you already eaten?'.",
     "FUN FACT 6: Do not point at a person with your index finger, as that is considered rude. Instead point with your thumb.",
     "FUN FACT 7: Malaysia has a tropical climate, and is home to many beautiful islands and rainforests.",
     "FUN FACT 8: Malaysia is a Muslim majority country. Locals appreciate it if you dress appropriately!",
     "FUN FACT 9: Look right, then left. Malaysians drive on the left side of the street.",
-    "FUN FACT 10: You already know 'some' Malay. Some words are based off of English and Dutch. For example, 'bus' is 'bas', 'taxi' is 'teksi', and 'hello' is 'helo'!"
+    "FUN FACT 10: You already know some Malay. Some words are based off of English and Dutch. For example, 'bus' is 'bas', 'taxi' is 'teksi', and 'hello' is 'helo'!"
   ]
-  //Uncomment this to create a default deck of cards.
+  // //Uncomment this to create a default deck of cards.
   // cardAdd: function(front, back) {
   //   this.cards.push(new card(front, back));
   //   console.log(this.cards);
@@ -138,9 +144,9 @@ startQuiz.addEventListener("click", game.removeDeck);
 startQuiz.addEventListener("click", game.quizUser);
 quiz.addEventListener("mouseover", game.translate);
 quiz.addEventListener("mouseout", game.revert);
-//Uncomment to Create Default Cards
-//game.cardAdd("How are you?", "Apa khabar?");
+// //Uncomment to Create Default Cards
+// game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
 // game.cardAdd("Have you already eaten?", "Sudah makan?");
 // game.userAdd();
-//game.buildDeck();
+// game.buildDeck();
