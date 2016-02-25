@@ -9,6 +9,8 @@ var form = document.querySelector("#form");
 var facts = document.querySelector("#facts");
 var startQuiz = document.querySelector("#startQuiz");
 var quiz = document.querySelector("#quiz");
+var correct = document.querySelector(".correct");
+var incorrect = document.querySelector(".incorrect");
 
 //Create Card container
 function card(front, back){
@@ -110,7 +112,7 @@ game = {
       correctButton.innerText = ("Correct!");
       incorrectButton = document.createElement("button");
       quiz.appendChild(incorrectButton);
-      correctButton.classList.add("correct");
+      correctButton.classList.add("incorrect");
       incorrectButton.innerText = ("Incorrect :(");
 
       //Display card index value 0
@@ -120,11 +122,15 @@ game = {
     tallyRight = document.createElement("p");
     $(tallyRight).fadeIn(2000);
     quiz.appendChild(tallyRight);
-    tallyRight.innerText = ("Number Correct: ");
+    tallyRight.innerText = ("Number Correct: " + 0);
     tallyWrong = document.createElement("p");
     $(tallyWrong).fadeIn(2000);
     quiz.appendChild(tallyWrong);
-    tallyWrong.innerText = ("Number Incorrect: ");
+    tallyWrong.innerText = ("Number Incorrect: " + 0);
+  },
+  correctClick: function() {
+    tallyRight.innerText = ("Number Correct: " + 1);
+    console.log("Correct clicked!");
   },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
@@ -149,6 +155,7 @@ startQuiz.addEventListener("click", game.removeDeck);
 startQuiz.addEventListener("click", game.quizUser);
 quiz.addEventListener("mouseover", game.translate);
 quiz.addEventListener("mouseout", game.revert);
+correct.addEventListener("click", game.correctClick);
 //Default Cards
 //game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
