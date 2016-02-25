@@ -60,18 +60,27 @@ game = {
   },
   //Fun facts appear matching the length of the card deck.
   funFact: function() {
-    for (var i = 0; i < 10; i++) {
-      factDiv = document.createElement("div");
-      $(factDiv).fadeIn(5000);
-      facts.appendChild(factDiv);
-      factDiv.classList.add("funFact");
-      factDiv.innerText = (game.factoids[i]);
-    } if (game.cards.length > 10) {
-      factDiv = document.createElement("div");
-      $(factDiv).fadeIn(5000);
-      facts.appendChild(factDiv);
-      factDiv.classList.add("funFact");
-      factDiv.innerText = ("Check back later for more facts!");
+    if (game.cards.length <= 10) {
+      for (var i = 0; i < game.cards.length; i++) {
+        var factDiv1 = document.createElement("div");
+        $(factDiv1).fadeIn(5000);
+        facts.appendChild(factDiv1);
+        factDiv1.classList.add("funFact");
+        factDiv1.innerText = (game.factoids[i]);
+      }
+    } else if (game.cards.length > 10) {
+      for (var j = 0; j < 10; j++) {
+        var factDiv2 = document.createElement("div");
+        $(factDiv2).fadeIn(5000);
+        facts.appendChild(factDiv2);
+        factDiv2.classList.add("funFact");
+        factDiv2.innerText = (game.factoids[j]);
+      }
+      var factDiv3 = document.createElement("div");
+      $(factDiv3).fadeIn(5000);
+      facts.appendChild(factDiv3);
+      factDiv3.classList.add("funFact");
+      factDiv3.innerText = ("Check back later for more facts!");
     }
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
@@ -115,6 +124,10 @@ game = {
       //If user incorrectly translates, click button 2 to display card of next index value and put previous card at the end of the array
       //Quiz continues until all cards are removed from the array
     }
+    var message = document.createElement("h2");
+    $(message).fadeIn(2000);
+    quiz.appendChild(message);
+    message.innerText = ("Check back later for completed quiz!");
   },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",

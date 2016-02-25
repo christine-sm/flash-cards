@@ -20,6 +20,7 @@
 * Ideally, I do not want to have the 'add card' and 'build deck' to be separate functions. I would like it to work so that when a user adds a card, it immediately pops up, then they add a second card, that one pops up and so on. My build deck function worked so well as a for loop that I struggled to find another solution.
 * It would be nice if I had an API of fun facts about Malaysia so I do not have to write out a bunch of facts. I wrote out ten facts for now, but what if a user creates 10+ cards? I could repeat the facts in a loop, but the more facts the better.
 * For the quiz, I was having trouble making the cards show up one at a time. I could either make all of the cards show up at once using a for loop or isolate one card to show up without being able to later cycle through the cards. I would love to figure out how to tackle this.
+* When I hover over the cards, they translate properly, but an error message shows up in the console. I understand why the error is happening, but I don't know how to fix it without messing up the translation.
 
 # User Stories
   * **User Story 1:** As a user, I should be able to add cards by inputting English words/phrases and translated words/phrases so I can customize the deck to my liking.
