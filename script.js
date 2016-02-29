@@ -138,6 +138,10 @@ game = {
   translate: function(event) {
     event.preventDefault();
     var thisCard = game.cards[event.target.dataset.cardIndex];
+
+    // It's saying that thisCard.backVal is undefined and causing an error in the console.
+    // Where have you defined .backVal?
+    // console.log("thiscard.back val: " + thisCard.backVal);
     event.target.innerText = thisCard.backVal;
   },
   //Create a function that switches Malay text back to the corresponding English text when text mouseout.
