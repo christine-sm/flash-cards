@@ -108,7 +108,7 @@ game = {
       for (var i = 0; i < game.cards.length; i++) {
         // watch out again for indentation
 
-        // for this funFact method I would definitely take this portion into one separate method
+        // for this funFact method I would take this portion into one separate method
 
         var factDiv1 = document.createElement("div");
         $(factDiv1).fadeIn(5000);
@@ -118,7 +118,7 @@ game = {
       }
     } else if (game.cards.length > 10) {
       for (var j = 0; j < 10; j++) {
-        // this code is not particularly DRY since we are almost identical code on group of this if/else conditional
+        // below we is almost identical code in this if/else conditional
         var factDiv2 = document.createElement("div");
         $(factDiv2).fadeIn(5000);
         facts.appendChild(factDiv2);
@@ -134,13 +134,13 @@ game = {
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
 
-  // I really like the following three methods because I think they are much more modular and easy to read/understand your code!
+  // I really like the following three methods because I think they are very modular and easy to read!
   translate: function(event) {
     event.preventDefault();
     var thisCard = game.cards[event.target.dataset.cardIndex];
 
     // It's saying that thisCard.backVal is undefined and causing an error in the console.
-    // Where have you defined .backVal?
+    // It appears you have not defined backVal or frontVal from what I could see. I think that could be a reason for the error
     // console.log("thiscard.back val: " + thisCard.backVal);
     event.target.innerText = thisCard.backVal;
   },
@@ -209,7 +209,8 @@ game = {
 
 // There are alot of eventlisteners in your code, are all of them necessary for it to work?
 // I would try to think about what's necessary and how maybe you could combine functionality in one
-// event listener for reach element
+// event listener, for example:
+// Instead of 2 startQuiz.addEventListener("click", callback), include additional functionality in the callback
 
 button.addEventListener("click", game.userAdd);
 build.addEventListener("click", game.buildDeck);
