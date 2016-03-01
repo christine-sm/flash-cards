@@ -41,7 +41,7 @@
   * **Silver:** Replace default deck with deck created by user input. Add buttons for user to enter in words and translations.
   * **Gold:** Application has nice CSS styling. For each card added, user learns a fun fact about Malaysian culture.
   * **Platinum:** Deck "quiz" where user can cycle through one card at a time.
-
+<!--Great Pseudocode as well  -->
 # Initial Pseudocode
   * Card Container Function
   * Create a Deck of Default Cards Function
