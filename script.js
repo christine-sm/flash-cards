@@ -1,4 +1,8 @@
+// I LOVE THE COMMENTS!
+
 //DOM Variables
+// there are quite a few global variables here, I might try to put these into an object
+// maybe even naming it gameParts = {} or something
 var gameBox = document.querySelector("#gameBox");
 var cardText = document.querySelector("#cardText");
 var engText = document.querySelector("#engText");
@@ -13,6 +17,7 @@ var quiz = document.querySelector("#quiz");
 // var incorrect = document.querySelector(".incorrect");
 
 //Create Card container
+// awesome job using a constructor function, just remember to capitalize!
 function card(front, back){
     this.frontVal = front;
     this.backVal = back;
@@ -23,12 +28,27 @@ game = {
   cards: [],
   //Create function that logs user inputs of English and Malay words.
   userAdd: function(event, front, back) {
+    // you don't really to pass front and back in since you are really
+    // defining them here in this function
+    // var front = engText.value;
+    // var back = engText.value;
     event.preventDefault();
     front = engText.value;
     back = forText.value;
     game.cards.push(new card(front, back));
+    // totally great to use console.log for debugging, just remember to take it out after!
     console.log(game.cards);
     //Creates Card Added! Message and then fades out.
+
+    // I would abstract the following below into a separate method, maybe call it addExtraDiv?
+
+  //   addExtraDiv = function(){
+  //     var addDiv = document.createElement("div");
+  //     form.appendChild(addDiv);
+  //     addDiv.classList.add("cardAdd");
+  //     addDiv.innerText = ("Card Added!");
+  // }
+
     var addDiv = document.createElement("div");
     form.appendChild(addDiv);
     addDiv.classList.add("cardAdd");
@@ -40,6 +60,16 @@ game = {
   buildDeck: function(event) {
     event.preventDefault();
     //Create Info Message
+
+    // I would abstract the following into another method:
+
+  //   createCardsInfo = function(){
+  //     infoCards = document.createElement("h3");
+  //     $(infoCards).fadeIn(1000);
+  //     cardText.appendChild(infoCards);
+  //     infoCards.classList.add("info");
+  //     infoCards.innerText= ("Here is your deck. Hover over a card to see its translation. Underneath the deck, you will see your fun facts about Malaysia!");
+  // }
     infoCards = document.createElement("h3");
     $(infoCards).fadeIn(1000);
     cardText.appendChild(infoCards);
@@ -48,7 +78,21 @@ game = {
 
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
+    // watch out for indentation here! I would indent to the right so it's nested under the for loop
     newDiv = document.createElement("div");
+
+    // again here I would abstract this into a separate method and it call in the for loop instead
+    // game.appendExtraDiv(newDiv, i);
+
+    // Then add the following below this method:
+  //   appendExtraDiv = function(newDiv, index){
+  //     $(newDiv).fadeIn(2000);
+  //     cardText.appendChild(newDiv);
+  //     newDiv.classList.add("frontVal");
+  //     newDiv.dataset.cardIndex = index;
+  //     console.log(newDiv);
+  //     newDiv.innerText = (game.cards[index].frontVal);
+  // }
     $(newDiv).fadeIn(2000);
     cardText.appendChild(newDiv);
     newDiv.classList.add("frontVal");
@@ -62,6 +106,10 @@ game = {
   funFact: function() {
     if (game.cards.length <= 10) {
       for (var i = 0; i < game.cards.length; i++) {
+        // watch out again for indentation
+
+        // for this funFact method I would take this portion into one separate method
+
         var factDiv1 = document.createElement("div");
         $(factDiv1).fadeIn(5000);
         facts.appendChild(factDiv1);
@@ -70,6 +118,7 @@ game = {
       }
     } else if (game.cards.length > 10) {
       for (var j = 0; j < 10; j++) {
+        // below we is almost identical code in this if/else conditional
         var factDiv2 = document.createElement("div");
         $(factDiv2).fadeIn(5000);
         facts.appendChild(factDiv2);
@@ -84,9 +133,15 @@ game = {
     }
   },
   //Create a function that switches English text to the corresponding Malay text when text mouseover.
+
+  // I really like the following three methods because I think they are very modular and easy to read!
   translate: function(event) {
     event.preventDefault();
     var thisCard = game.cards[event.target.dataset.cardIndex];
+
+    // It's saying that thisCard.backVal is undefined and causing an error in the console.
+    // It appears you have not defined backVal or frontVal from what I could see. I think that could be a reason for the error
+    // console.log("thiscard.back val: " + thisCard.backVal);
     event.target.innerText = thisCard.backVal;
   },
   //Create a function that switches Malay text back to the corresponding English text when text mouseout.
@@ -114,6 +169,10 @@ game = {
         console.log(quizCard);
         quizCard.innerText = (game.cards[k].frontVal);
       // }
+
+      // although its okay to comment out code while troubleshooting, you should clean this up and take it out
+
+
       // correctButton = document.createElement("button");
       // quiz.appendChild(correctButton);
       // correctButton.classList.add("correct");
@@ -147,6 +206,11 @@ game = {
   //   console.log(this.cards);
   // }
 };
+
+// There are alot of eventlisteners in your code, are all of them necessary for it to work?
+// I would try to think about what's necessary and how maybe you could combine functionality in one
+// event listener, for example:
+// Instead of 2 startQuiz.addEventListener("click", callback), include additional functionality in the callback
 
 button.addEventListener("click", game.userAdd);
 build.addEventListener("click", game.buildDeck);
