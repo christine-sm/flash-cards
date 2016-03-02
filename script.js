@@ -109,6 +109,7 @@ game = {
   },
   //User Quizzes themselves
   quizUser: function() {
+    game.removeDeck();
   //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME? Make all but the first invisible? Do I not use a for loop? I can either have just the first card show up or all of the cards show up at once, but I am struggling to show them in a loop one at a time.
     for (var k = 0; k < game.cards.length; k++) {
       // if (k === 0) {
@@ -158,7 +159,6 @@ button.addEventListener("click", game.userAdd);
 build.addEventListener("click", game.buildDeck);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
-startQuiz.addEventListener("click", game.removeDeck);
 startQuiz.addEventListener("click", game.quizUser);
 quiz.addEventListener("mouseover", game.translate);
 quiz.addEventListener("mouseout", game.revert);
