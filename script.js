@@ -50,6 +50,7 @@ game = {
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   buildDeck: function(event) {
     event.preventDefault();
+    game.infoMessage();
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
       var newDiv = document.createElement("div");
@@ -153,7 +154,6 @@ game = {
 };
 
 button.addEventListener("click", game.userAdd);
-build.addEventListener("click", game.infoMessage);
 build.addEventListener("click", game.buildDeck);
 build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
