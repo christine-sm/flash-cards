@@ -1,14 +1,14 @@
 //DOM Variables
-var gameBox = document.querySelector("#gameBox");
-var cardText = document.querySelector("#cardText");
-var engText = document.querySelector("#engText");
-var forText = document.querySelector("#forText");
-var button = document.querySelector("#button");
-var build = document.querySelector("#build");
-var form = document.querySelector("#form");
-var facts = document.querySelector("#facts");
-var startQuiz = document.querySelector("#startQuiz");
-var quiz = document.querySelector("#quiz");
+var gameBox = $("#gameBox");
+var cardText = $("#cardText");
+var engText = $("#engText");
+var forText = $("#forText");
+var button = $("#button");
+var build = $("#build");
+var form = $("#form");
+var facts = $("#facts");
+var startQuiz = $("#startQuiz");
+var quiz = $("#quiz");
 // var correct = document.querySelector(".correct");
 // var incorrect = document.querySelector(".incorrect");
 
@@ -24,7 +24,7 @@ game = {
   //Creates Card Added! Message and then fades out.
   addMessage: function() {
     var addDiv = document.createElement("div");
-    form.appendChild(addDiv);
+    form.append(addDiv);
     addDiv.classList.add("cardAdd");
     console.log(addDiv);
     addDiv.innerText = ("Card Added!");
@@ -33,8 +33,8 @@ game = {
   //Create function that logs user inputs of English and Malay words.
   userAdd: function(event) {
     event.preventDefault();
-    var front = engText.value;
-    var back = forText.value;
+    var front = engText.val();
+    var back = forText.val();
     game.cards.push(new Card(front, back));
     console.log(game.cards);
     game.addMessage();
@@ -43,7 +43,7 @@ game = {
   infoMessage: function() {
     var infoCards = document.createElement("h3");
     $(infoCards).fadeIn(1000);
-    cardText.appendChild(infoCards);
+    cardText.append(infoCards);
     infoCards.classList.add("info");
     infoCards.innerText= ("Here is your deck. Hover over a card to see its translation. Underneath the deck, you will see your fun facts about Malaysia!");
   },
@@ -53,15 +53,21 @@ game = {
     game.infoMessage();
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
-      var newDiv = document.createElement("div");
-      $(newDiv).fadeIn(2000);
-      cardText.appendChild(newDiv);
-      newDiv.classList.add("frontVal");
-      newDiv.dataset.cardIndex = i;
-      console.log(newDiv);
-      newDiv.innerText = (game.cards[i].frontVal);
+      game.createNewDivs(game.cards[i], i);
     }
     game.funFact();
+  },
+  createNewDivs: function(card, index) {
+    var newDiv = document.createElement("div");
+    $(newDiv).fadeIn(2000);
+    cardText.append(newDiv);
+    newDiv.classList.add("frontVal");
+    $(".frontVal").on("mouseover", game.translate);
+    $(".frontVal").on("mouseout", game.revert);
+    newDiv.dataset.cardIndex = index;
+    console.log(card);
+    newDiv.innerText = (card.frontVal);
+
   },
   //Fun facts appear matching the length of the card deck.
   funFact: function() {
@@ -69,7 +75,7 @@ game = {
       for (var i = 0; i < game.cards.length; i++) {
         var factDiv1 = document.createElement("div");
         $(factDiv1).fadeIn(5000);
-        facts.appendChild(factDiv1);
+        facts.append(factDiv1);
         factDiv1.classList.add("funFact");
         factDiv1.innerText = (game.factoids[i]);
       }
@@ -78,13 +84,13 @@ game = {
       for (var j = 0; j < 10; j++) {
         var factDiv2 = document.createElement("div");
         $(factDiv2).fadeIn(5000);
-        facts.appendChild(factDiv2);
+        facts.append(factDiv2);
         factDiv2.classList.add("funFact");
         factDiv2.innerText = (game.factoids[j]);
       }
       var factDiv3 = document.createElement("div");
       $(factDiv3).fadeIn(5000);
-      facts.appendChild(factDiv3);
+      facts.append(factDiv3);
       factDiv3.classList.add("funFact");
       factDiv3.innerText = ("Check back later for more facts!");
     }
@@ -93,6 +99,8 @@ game = {
   translate: function(event) {
     event.preventDefault();
     var thisCard = game.cards[event.target.dataset.cardIndex];
+    console.log(thisCard);
+    console.log(this);
     event.target.innerText = thisCard.backVal;
   },
   //Create a function that switches Malay text back to the corresponding English text when text mouseout.
@@ -115,14 +123,14 @@ game = {
       // if (k === 0) {
         quizCard = document.createElement("div");
         $(quizCard).fadeIn(2000);
-        quiz.appendChild(quizCard);
+        quiz.append(quizCard);
         quizCard.classList.add("frontVal");
         quizCard.dataset.cardIndex = k;
         console.log(quizCard);
         quizCard.innerText = (game.cards[k].frontVal);
       // }
       // correctButton = document.createElement("button");
-      // quiz.appendChild(correctButton);
+      // quiz.append(correctButton);
       // correctButton.classList.add("correct");
       // correctButton.innerText = ("Correct!");
 
@@ -133,7 +141,7 @@ game = {
     }
     var message = document.createElement("h2");
     $(message).fadeIn(2000);
-    quiz.appendChild(message);
+    quiz.append(message);
     message.innerText = ("Check back later for completed quiz!");
   },
   factoids: [
@@ -155,13 +163,13 @@ game = {
   // }
 };
 
-button.addEventListener("click", game.userAdd);
-build.addEventListener("click", game.buildDeck);
-cardText.addEventListener("mouseover", game.translate);
-cardText.addEventListener("mouseout", game.revert);
-startQuiz.addEventListener("click", game.quizUser);
-quiz.addEventListener("mouseover", game.translate);
-quiz.addEventListener("mouseout", game.revert);
+button.on("click", game.userAdd);
+build.on("click", game.buildDeck);
+// $(".frontVal").on("mouseover", game.translate);
+// $(".frontVal").on("mouseout", game.revert);
+startQuiz.on("click", game.quizUser);
+quiz.on("mouseover", game.translate);
+quiz.on("mouseout", game.revert);
 // //Uncomment to Create Default Cards
 // game.cardAdd("How are you?", "Apa khabar?");
 // game.cardAdd("My name is _________.", "Name saya _________.");
