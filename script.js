@@ -38,16 +38,18 @@ game = {
     addDiv.innerText = ("Card Added!");
     $(".cardAdd").fadeOut(1000);
   },
-  //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
-  buildDeck: function(event) {
-    event.preventDefault();
-    //Create Info Message
-    infoCards = document.createElement("h3");
+  //Create Info Message
+  infoMessage: function() {
+    var infoCards = document.createElement("h3");
     $(infoCards).fadeIn(1000);
     cardText.appendChild(infoCards);
     infoCards.classList.add("info");
     infoCards.innerText= ("Here is your deck. Hover over a card to see its translation. Underneath the deck, you will see your fun facts about Malaysia!");
+  },
 
+  //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
+  buildDeck: function(event) {
+    event.preventDefault();
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
     newDiv = document.createElement("div");
@@ -152,6 +154,7 @@ game = {
 
 button.addEventListener("click", game.userAdd);
 button.addEventListener("click", game.addMessage);
+build.addEventListener("click", game.infoMessage);
 build.addEventListener("click", game.buildDeck);
 build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
