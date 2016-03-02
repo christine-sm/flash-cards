@@ -13,7 +13,7 @@ var quiz = document.querySelector("#quiz");
 // var incorrect = document.querySelector(".incorrect");
 
 //Create Card container
-function card(front, back){
+function Card(front, back){
     this.frontVal = front;
     this.backVal = back;
 }
@@ -22,13 +22,15 @@ game = {
   // The cards are an empty array to start.
   cards: [],
   //Create function that logs user inputs of English and Malay words.
-  userAdd: function(event, front, back) {
+  userAdd: function(event) {
     event.preventDefault();
-    front = engText.value;
-    back = forText.value;
-    game.cards.push(new card(front, back));
+    var front = engText.value;
+    var back = forText.value;
+    game.cards.push(new Card(front, back));
     console.log(game.cards);
-    //Creates Card Added! Message and then fades out.
+  },
+  //Creates Card Added! Message and then fades out.
+  addMessage: function() {
     var addDiv = document.createElement("div");
     form.appendChild(addDiv);
     addDiv.classList.add("cardAdd");
@@ -149,6 +151,7 @@ game = {
 };
 
 button.addEventListener("click", game.userAdd);
+button.addEventListener("click", game.addMessage);
 build.addEventListener("click", game.buildDeck);
 build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
