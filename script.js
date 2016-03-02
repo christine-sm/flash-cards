@@ -46,20 +46,18 @@ game = {
     infoCards.classList.add("info");
     infoCards.innerText= ("Here is your deck. Hover over a card to see its translation. Underneath the deck, you will see your fun facts about Malaysia!");
   },
-
   //Create a function that builds a deck displaying the English side of the cards when 'build deck' button is pushed.
   buildDeck: function(event) {
     event.preventDefault();
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
-    newDiv = document.createElement("div");
-    $(newDiv).fadeIn(2000);
-    cardText.appendChild(newDiv);
-    newDiv.classList.add("frontVal");
-    newDiv.dataset.cardIndex = i;
-    console.log(newDiv);
-    newDiv.innerText = (game.cards[i].frontVal);
-
+      newDiv = document.createElement("div");
+      $(newDiv).fadeIn(2000);
+      cardText.appendChild(newDiv);
+      newDiv.classList.add("frontVal");
+      newDiv.dataset.cardIndex = i;
+      console.log(newDiv);
+      newDiv.innerText = (game.cards[i].frontVal);
     }
   },
   //Fun facts appear matching the length of the card deck.
@@ -72,6 +70,7 @@ game = {
         factDiv1.classList.add("funFact");
         factDiv1.innerText = (game.factoids[i]);
       }
+      //Since I have only written ten facts, this prevents undefined divs from showing up after the 10th fact & shows a message to check back later for more facts.
     } else if (game.cards.length > 10) {
       for (var j = 0; j < 10; j++) {
         var factDiv2 = document.createElement("div");
