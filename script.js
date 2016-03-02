@@ -61,6 +61,7 @@ game = {
       console.log(newDiv);
       newDiv.innerText = (game.cards[i].frontVal);
     }
+    game.funFact();
   },
   //Fun facts appear matching the length of the card deck.
   funFact: function() {
@@ -155,7 +156,6 @@ game = {
 
 button.addEventListener("click", game.userAdd);
 build.addEventListener("click", game.buildDeck);
-build.addEventListener("click", game.funFact);
 cardText.addEventListener("mouseover", game.translate);
 cardText.addEventListener("mouseout", game.revert);
 startQuiz.addEventListener("click", game.removeDeck);
