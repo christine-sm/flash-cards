@@ -21,14 +21,6 @@ function Card(front, back){
 game = {
   // The cards are an empty array to start.
   cards: [],
-  //Create function that logs user inputs of English and Malay words.
-  userAdd: function(event) {
-    event.preventDefault();
-    var front = engText.value;
-    var back = forText.value;
-    game.cards.push(new Card(front, back));
-    console.log(game.cards);
-  },
   //Creates Card Added! Message and then fades out.
   addMessage: function() {
     var addDiv = document.createElement("div");
@@ -37,6 +29,15 @@ game = {
     console.log(addDiv);
     addDiv.innerText = ("Card Added!");
     $(".cardAdd").fadeOut(1000);
+  },
+  //Create function that logs user inputs of English and Malay words.
+  userAdd: function(event) {
+    event.preventDefault();
+    var front = engText.value;
+    var back = forText.value;
+    game.cards.push(new Card(front, back));
+    console.log(game.cards);
+    game.addMessage();
   },
   //Create Info Message
   infoMessage: function() {
@@ -51,7 +52,7 @@ game = {
     event.preventDefault();
     //For loop that creates a number of cards equaling length of cards added.
     for (var i = 0; i < game.cards.length; i++) {
-      newDiv = document.createElement("div");
+      var newDiv = document.createElement("div");
       $(newDiv).fadeIn(2000);
       cardText.appendChild(newDiv);
       newDiv.classList.add("frontVal");
@@ -152,7 +153,6 @@ game = {
 };
 
 button.addEventListener("click", game.userAdd);
-button.addEventListener("click", game.addMessage);
 build.addEventListener("click", game.infoMessage);
 build.addEventListener("click", game.buildDeck);
 build.addEventListener("click", game.funFact);
