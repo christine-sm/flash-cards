@@ -17,13 +17,14 @@ body {
   background: -moz-linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
   /*width: 40em;*/
   margin: 2em auto;
-  padding: 2em 0;
+  padding: 2em 1em;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 input {
   padding:5px;
+  margin-top: 10px;
   font-size: 15px;
   color:#000;
   background-color: #fff;
@@ -33,6 +34,7 @@ input {
 
 button {
   padding:5px;
+  margin-top: 10px;
   font-size: 15px;
   color:#fff;
   background-color: #0052cc;
