@@ -15,10 +15,11 @@ body {
   background: linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
   background: -webkit-linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
   background: -moz-linear-gradient(top, rgba(255,255,255,.90), rgba(255,255,255,.90));
-  width: 40em;
-  margin: 0 auto;
-  padding: 2em;
+  /*width: 40em;*/
+  margin: 2em auto;
+  padding: 2em 0;
   border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 input {
@@ -37,6 +38,7 @@ button {
   background-color: #0052cc;
   border: 1px solid #0066ff;
   border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
 .cardAdd {
