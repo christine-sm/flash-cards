@@ -38,6 +38,8 @@ game = {
     game.cards.push(new Card(front, back));
     console.log(game.cards);
     game.addMessage();
+    engText.val("");
+    forText.val("");
   },
   //Create Info Message
   infoMessage: function() {
@@ -111,24 +113,26 @@ game = {
   },
   //Removes deck and fun facts in preparation for quiz.
   removeDeck: function() {
-    $(cardText).fadeOut(500);
-    gameBox.removeChild(cardText); //Deletes the div
-    $(facts).fadeOut(500); //Makes div invisible so user can retrieve later when I make a button for it.
+    cardText.fadeOut(500);
+    facts.fadeOut(500); //Makes div invisible so user can retrieve later when I make a button for it.
+    // gameBox.removeChild(cardText); //Deletes the div
   },
   //User Quizzes themselves
   quizUser: function() {
     game.removeDeck();
+    var message = gameBox.append("<h2>Check back later for completed quiz!</h2>");
+    // message.fadeIn(2000);
   //Redisplay cards, one at a time. HOW CAN I DO THIS ONE CARD AT A TIME? Make all but the first invisible? Do I not use a for loop? I can either have just the first card show up or all of the cards show up at once, but I am struggling to show them in a loop one at a time.
-    for (var k = 0; k < game.cards.length; k++) {
-      // if (k === 0) {
-        quizCard = document.createElement("div");
-        $(quizCard).fadeIn(2000);
-        quiz.append(quizCard);
-        quizCard.classList.add("frontVal");
-        quizCard.dataset.cardIndex = k;
-        console.log(quizCard);
-        quizCard.innerText = (game.cards[k].frontVal);
-      // }
+    // for (var k = 0; k < game.cards.length; k++) {
+    //   // if (k === 0) {
+    //     quizCard = document.createElement("div");
+    //     quizCard.fadeIn(2000);
+    //     quiz.append(quizCard);
+    //     quizCard.classList.add("frontVal");
+    //     quizCard.dataset.cardIndex = k;
+    //     console.log(quizCard);
+    //     quizCard.innerText = (game.cards[k].frontVal);
+    //   // }
       // correctButton = document.createElement("button");
       // quiz.append(correctButton);
       // correctButton.classList.add("correct");
@@ -138,11 +142,7 @@ game = {
       //If user correctly translates, click button 1 to give a user a point and remove card from deck and display card of next index value
       //If user incorrectly translates, click button 2 to display card of next index value and put previous card at the end of the array
       //Quiz continues until all cards are removed from the array
-    }
-    var message = document.createElement("h2");
-    $(message).fadeIn(2000);
-    quiz.append(message);
-    message.innerText = ("Check back later for completed quiz!");
+    // }
   },
   factoids: [
     "FUN FACT 1: What is the building I see in the background? These are the PETRONAS TOWERS. They were the tallest buildings in the world from 1998 to 2004 and remain the tallest twin towers in the world.",
